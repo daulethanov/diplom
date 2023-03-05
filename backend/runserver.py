@@ -1,15 +1,23 @@
 from flask import Flask
+from flask_admin.contrib.sqla import ModelView
 from flask_jwt_extended import JWTManager
 from .auth import auth
+from flask_marshmallow import Marshmallow
 from .university import api
 from .models import db
+from .admin import admin
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 db.init_app(app)
+admin.init_app(app)
+migrate = Migrate(app, db)
 app.app_context().push()
+ma = Marshmallow(app)
 db.create_all()
 JWTManager(app)
+
 app.register_blueprint(api)
 app.register_blueprint(auth)
 

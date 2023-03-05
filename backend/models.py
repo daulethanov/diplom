@@ -1,7 +1,7 @@
 from .Enum import City, Specialization
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from enum import Enum
+from slugify import slugify
 
 db = SQLAlchemy()
 
@@ -31,6 +31,13 @@ class University(db.Model):
     city = db.Enum(City)
     created_at = db.Column(db.DateTime, default=datetime.now())
     update_at = db.Column(db.DateTime, onupdate=datetime.now())
+    slug = db.Column(db.String(200), unique=True)
 
     def __repr__(self):
         return f'name: {self.name}'
+
+    def __init__(self, name):
+        self.slug = slugify(name)
+
+
+
