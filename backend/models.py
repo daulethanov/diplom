@@ -1,3 +1,5 @@
+from sqlalchemy.orm import relationship, backref
+
 from .Enum import City, Specialization
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -40,4 +42,11 @@ class University(db.Model):
         self.slug = slugify(name)
 
 
+class Image(db.Model):
+    __tablename__ = 'image'
+
+    id = db.Column(db.Integer, primary_key=True)
+    university_id = db.Column(db.Integer, db.ForeignKey('university.id'), nullable=False)
+    image = relationship('University')
+    university = db.relationship('University', backref='image', uselist=False)
 

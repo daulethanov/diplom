@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_admin.contrib.sqla import ModelView
 from flask_jwt_extended import JWTManager
 from .auth import auth
 from flask_marshmallow import Marshmallow

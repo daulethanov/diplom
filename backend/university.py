@@ -15,5 +15,12 @@ def university_list():
     }), 200
 
 
-# @api.route('/university/<int:id>')
+@api.route('/university/<slug>', methods=['GET'])
+def university_detail(slug):
+    university = University.query.filter_by(slug=slug).first_or_404()
+    university_schema = UniversitySerializer()
+    result = university_schema.dump(university)
+    return jsonify({
+        'data': result
+    })
 
