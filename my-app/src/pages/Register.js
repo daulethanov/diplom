@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import './css/registr.css'
 import InputFormAuth from "../components/input/Input";
 import { NavLink } from "react-router-dom";
 import ButtonFormAuth from "../components/button/buttonForm/ButtonForm";
+import axios from 'axios'
 
-
-function Registr() {
+function Register() {
 
 	// начало состояния email и пароля
-	const [firstName, setFirstName] = useState('')
+	const [name, setFirstName] = useState('')
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [passwordRec, setPasswordRec] = useState('');
+	const [password2, setPasswordRec] = useState('');
 	// конец состояния email и пароля
 
 	// начало показать пароль
@@ -20,9 +20,19 @@ function Registr() {
 	// конец показать пароль
 
 	// начало функция для отправки дынных на сервер
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(`FirstName: ${firstName}, Email: ${email}, Password: ${password}, PasswordRec: ${passwordRec}`);
+            try {
+      const response = await axios.post("http://localhost:5000/api/v1/auth/register", {
+        name,
+        email,
+        password,
+        password2
+      });
+      console.log(response.data);
+    } catch (err) {
+      console.error(err);
+    }
 	}
 	// конец функция для отправки дынных на сервер
 
@@ -48,10 +58,9 @@ function Registr() {
 					<form onSubmit={handleSubmit}>
 						{/* начало поле имени */}
 						<InputFormAuth
-
 							type="text"
 							placeholder="Ваше имя"
-							value={firstName}
+							value={name}
 							onChange={(e) => setFirstName(e.target.value)}
 						></InputFormAuth>
 						{/* конец поле имени */}
@@ -78,7 +87,7 @@ function Registr() {
 						<InputFormAuth
 							type={showPasswordRec ? 'text' : 'password'}
 							placeholder="Повторите пароль"
-							value={passwordRec}
+							value={password2}
 							onChange={(e) => setPasswordRec(e.target.value)}
 							onMouseOver={() => setShowPasswordRec(true)}
 							onMouseOut={() => setShowPasswordRec(false)}
@@ -101,4 +110,4 @@ function Registr() {
 
 }
 
-export default Registr;
+export default Register;

@@ -9,3 +9,4 @@ class UniversitySerializer(ma.SQLAlchemyAutoSchema):
         model = University
         load_instance = True
 
+

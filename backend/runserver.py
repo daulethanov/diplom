@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from .auth import auth
 from flask_marshmallow import Marshmallow
@@ -14,6 +15,7 @@ admin.init_app(app)
 migrate = Migrate(app, db)
 app.app_context().push()
 ma = Marshmallow(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 db.create_all()
 JWTManager(app)
 

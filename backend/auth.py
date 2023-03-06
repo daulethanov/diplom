@@ -12,12 +12,19 @@ def register():
     name = request.json['name']
     email = request.json['email']
     password = request.json['password']
+    password2 = request.json['password2']
     pwd_hash = generate_password_hash(password)
+    pwd_hash2 = pwd_hash
+
+    if password != password2:
+        return jsonify({
+            'message': 'password not validate '
+        })
 
     if not validators.email(email):
         return 400
 
-    user = User(name=name, email=email, password=pwd_hash)
+    user = User(name=name, email=email, password=pwd_hash, password2=pwd_hash2)
     db.session.add(user)
     db.session.commit()
 

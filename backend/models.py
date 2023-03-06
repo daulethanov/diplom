@@ -15,6 +15,7 @@ class User(db.Model):
     name = db.Column(db.String(100))
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.Text())
+    password2 = db.Column(db.Text())
     created_at = db.Column(db.DateTime, default=datetime.now())
     update_at = db.Column(db.DateTime, onupdate=datetime.now())
 

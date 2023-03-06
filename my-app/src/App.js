@@ -6,7 +6,7 @@ import PrivatRoute from './utils/router/PrivateRoute';
 import Admin from './pages/Admin';
 import Bookmarks from './pages/Bookmarks';
 import Univer from './pages/Univer';
-import Registr from './pages/Registr';
+import Register from './pages/Register';
 import FirstHome from './pages/First';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -25,18 +25,18 @@ function App() {
 				{/* страница универа */}
 				<Route path="univer" element={<Univer></Univer>}></Route>
 
-				<Route path="admin" element={<Admin></Admin>}></Route>
+				<Route path="admin" element={<Admin/>}></Route>
 			</Route>
 			{/* главная */}
-			<Route path="/" element={<Home></Home>}></Route>
+			<Route path="/" element={<FirstHome/>}></Route>
 			{/* админка */}
 			{/* начало ждоступно без регистрации */}
 			{/* вход */}
-			<Route path="autorisation" element={<Autorisation></Autorisation>}></Route>
+			<Route path="login" element={<Autorisation/>}></Route>
 			{/* регистрация */}
-			<Route path="registr" element={<Registr></Registr>}></Route>
+			<Route path="/register" element={<Register/>}></Route>
 			{/* первая главная страница */}
-			<Route path='firstHome' element={<FirstHome></FirstHome>}></Route>
+			<Route path='/' element={<FirstHome></FirstHome>}></Route>
 			{/* конец ждоступно без регистрации */}
 		</Routes>
 

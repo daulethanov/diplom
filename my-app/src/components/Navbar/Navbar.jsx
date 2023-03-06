@@ -9,14 +9,14 @@ function Navbar() {
 			<header className="navbar">
 				<NavLink to={'/firstHome'} id="logo">Higher.kz</NavLink>
 				<ul className="nav">
-					<li><NavLink to={'/registr'} id="nav__active">Главная</NavLink></li>
-					<li><NavLink to={'/registr'}>Уч.заведения</NavLink></li>
-					<li><NavLink to={'/registr'}>Загрузить диплом</NavLink></li>
-					<li><NavLink to={'/registr'}>Контакты</NavLink></li>
+					<li><NavLink to={'/register'} id="nav__active">Главная</NavLink></li>
+					<li><NavLink to={'/register'}>Уч.заведения</NavLink></li>
+					<li><NavLink to={'/register'}>Загрузить диплом</NavLink></li>
+					<li><NavLink to={'/register'}>Контакты</NavLink></li>
 				</ul>
 				<div>
 					<NavLink to={'/autorisation'} className="button__auth">Вход</NavLink>
-					<button className="button__registr"><NavLink to={'/registr'}>Регистрация</NavLink></button>
+					<button className="button__registr"><NavLink to={'/register'}>Регистрация</NavLink></button>
 				</div>
 			</header >
 			<div className="navbar__mobile">
