@@ -24,3 +24,4 @@ def university_detail(slug):
         'data': result
     })
 
+

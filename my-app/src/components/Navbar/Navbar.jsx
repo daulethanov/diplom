@@ -15,7 +15,7 @@ function Navbar() {
 					<li><NavLink to={'/register'}>Контакты</NavLink></li>
 				</ul>
 				<div>
-					<NavLink to={'/autorisation'} className="button__auth">Вход</NavLink>
+					<NavLink to={'/login'} className="button__auth">Вход</NavLink>
 					<button className="button__registr"><NavLink to={'/register'}>Регистрация</NavLink></button>
 				</div>
 			</header >

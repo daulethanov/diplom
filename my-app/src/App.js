@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import Home from './pages/Home';
 import Autorisation from './pages/Autorisation';
 import PrivatRoute from './utils/router/PrivateRoute';
 import Admin from './pages/Admin';
@@ -25,16 +24,16 @@ function App() {
 				{/* страница универа */}
 				<Route path="univer" element={<Univer></Univer>}></Route>
 
-				<Route path="admin" element={<Admin/>}></Route>
+				<Route path="admin" element={<Admin />}></Route>
 			</Route>
 			{/* главная */}
-			<Route path="/" element={<FirstHome/>}></Route>
+			<Route path="/" element={<FirstHome />}></Route>
 			{/* админка */}
 			{/* начало ждоступно без регистрации */}
 			{/* вход */}
-			<Route path="login" element={<Autorisation/>}></Route>
+			<Route path="/login" element={<Autorisation />}></Route>
 			{/* регистрация */}
-			<Route path="/register" element={<Register/>}></Route>
+			<Route path="/register" element={<Register />}></Route>
 			{/* первая главная страница */}
 			<Route path='/' element={<FirstHome></FirstHome>}></Route>
 			{/* конец ждоступно без регистрации */}

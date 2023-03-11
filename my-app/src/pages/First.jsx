@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { NavLink } from "react-router-dom";
 import Futer from "../components/futer/Futer";
 import SimpleSlider from "../components/slide/slide";
+import Video from "../components/video/Video";
 
 function FirstHome() {
 
@@ -151,7 +152,7 @@ function FirstHome() {
 						<button className="servise__info__right__position__button"><NavLink to={'/registr'}>Начать</NavLink></button>
 					</div>
 				</div>
-
+				<Video></Video>
 				<div className="width content__bottom__comments__mobile">
 					<div className="content__bottom__comments__txt">
 						<h2>Комментарии студентов</h2>
@@ -196,12 +197,17 @@ function FirstHome() {
 							<h4>Ну я в итогу в фазенке , потому что не обратилась к этому сервису раньше. Не теряйте возможность, вперёд сейчас</h4>
 						</div>
 					</div>
+
+
+
 					<div className="content__bottom__comments__txt__button__position__mobile">
 						<button className="content__bottom__comments__txt__button "><NavLink to={'/registr'}>Посмотреть больше</NavLink></button>
 					</div>
 
 				</div>
 			</div>
+
+
 			<div className="content__bottom">
 				<div className="content__bottom__comments mobile__none">
 					<div className="width">

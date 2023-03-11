@@ -32,6 +32,7 @@ class University(db.Model):
     description = db.Column(db.Text())
     contact = db.Column(db.String(250))
     city = db.Enum(City)
+    email = db.Column(db.String(120))
     created_at = db.Column(db.DateTime, default=datetime.now())
     update_at = db.Column(db.DateTime, onupdate=datetime.now())
     slug = db.Column(db.String(200), unique=True)
@@ -43,11 +44,5 @@ class University(db.Model):
         self.slug = slugify(name)
 
 
-class Image(db.Model):
-    __tablename__ = 'image'
 
-    id = db.Column(db.Integer, primary_key=True)
-    university_id = db.Column(db.Integer, db.ForeignKey('university.id'), nullable=False)
-    image = relationship('University')
-    university = db.relationship('University', backref='image', uselist=False)
 

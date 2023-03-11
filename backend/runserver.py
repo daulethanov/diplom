@@ -15,7 +15,7 @@ admin.init_app(app)
 migrate = Migrate(app, db)
 app.app_context().push()
 ma = Marshmallow(app)
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 db.create_all()
 JWTManager(app)
 
